@@ -10,6 +10,7 @@ module.exports = function(app) {
   app.post("/project", Project.createProject);
   app.put("/project/:id/configDoc", Project.addConfigDocument);
   app.get("/project/:id", Project.getProject);
+  app.get("/project/:project_id/env/:env", Project.getConfigDoc);
 
   //Set configurations for document with id
   app.post("/configurations/:id", Document.setConfigurationsForDocument);

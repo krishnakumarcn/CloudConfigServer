@@ -5,6 +5,8 @@ const Schema = mongoose.Schema;
 
 const projectSchema = new Schema({
   name: { type: String },
+  ppm_id: { type: String },
+  description: { type: String },
   documents: { type: [DocumentEntry] }
 });
 
