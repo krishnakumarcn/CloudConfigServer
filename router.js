@@ -1,7 +1,7 @@
 const Project = require("./controllers/project");
 module.exports = function(app) {
   app.get("/", function(req, res) {
-    res.send({ hi: "there" });
+    res.send("Welcome to Nissan Digital Cloud Config Server.");
   });
   app.post("/project", Project.createProject);
 };
