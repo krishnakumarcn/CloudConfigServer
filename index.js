@@ -8,6 +8,7 @@ const bodyParser = require("body-parser");
 mongoose
   .connect(
     "mongodb+srv://scott:tiger@cluster0-jmefm.mongodb.net/auth?retryWrites=true",
+    // "mongodb://localhost/auth",
     { useNewUrlParser: true }
   )
   .then(res => {
