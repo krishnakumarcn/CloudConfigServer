@@ -2,21 +2,21 @@ const Document = require("../models/document");
 
 exports.setConfigurationsForDocument = function(req, res, next) {
   const body = req.body;
-  const documentId = body.documentId;
+  const documentId = req.documentId;
   const configurations = body.configurations;
 
-  Document.findOneAndUpdate(
-    { _id: documentId },
-    { configurations: configurations },
-    function(err) {
+  Document.findById(documentId, function(err, document) {
+    if (err) {
+      return next(err);
+    }
+    document.configurations = configurations;
+    document.save(function(err) {
       if (err) {
         return next(err);
       }
-      res.send("success");
-    }
-  );
-
-  //   document.save();
+      res.send(document);
+    });
+  });
 };
 
 exports.getConfigurations = function(req, res, next) {
@@ -25,6 +25,6 @@ exports.getConfigurations = function(req, res, next) {
   Document.findById(id, function(err, r) {
     if (err) return next(err);
     console.log(r);
-    res.send(r.configurations);
+    res.send(r);
   });
 };

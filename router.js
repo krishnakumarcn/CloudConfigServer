@@ -8,11 +8,11 @@ module.exports = function(app) {
   app.get("/projects", Project.getAllProjects);
 
   app.post("/project", Project.createProject);
-  app.post("/project/:id/configDoc", Project.addConfigDocument);
+  app.put("/project/:id/configDoc", Project.addConfigDocument);
   app.get("/project/:id", Project.getProject);
 
   //Set configurations for document with id
-  app.post("/configurations", Document.setConfigurationsForDocument);
+  app.post("/configurations/:id", Document.setConfigurationsForDocument);
 
   // Get configurations for id
   app.get("/configurations/:id", Document.getConfigurations);
