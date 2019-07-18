@@ -6,9 +6,9 @@ exports.createProject = function(req, res, next) {
   const ppm_id = req.body.ppm_id;
   const description = req.body.description;
   const project = new Project({
-    name: name,
-    ppm_id: ppm_id,
-    description: description,
+    name: "" + name,
+    ppm_id: "" + ppm_id,
+    description: "" + description,
     documents: []
   });
   project.id = project._id;
