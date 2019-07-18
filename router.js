@@ -9,7 +9,7 @@ module.exports = function(app) {
   
   //Set configurations for document with id
   app.post(
-    "/setConfigurationsForDocument",
+    "/configurations",
     Document.setConfigurationsForDocument
   );
 
