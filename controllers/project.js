@@ -13,3 +13,27 @@ exports.createProject = function(req, res, next) {
     res.send(project);
   });
 };
+exports.getAllProjects = function(req, res, next) {
+  var projectMap = [];
+  Project.find({}, function(err, projects) {
+    if (err) {
+      return next(err);
+    }
+    projects.forEach(item => {
+      projectMap.push(item);
+    });
+    res.send(projectMap);
+  });
+};
+exports.getProject = function(req, res, next) {
+  const projectId = req.params.id;
+  Project.findById(projectId, function(err, project) {
+    if (err) {
+      return next(err);
+    }
+    res.send(project);
+  });
+};
+exports.addConfigDocument = function(req, res, next) {
+  const projectId = req.params.id;
+};
